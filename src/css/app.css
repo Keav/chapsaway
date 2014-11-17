@@ -103,7 +103,38 @@ pointer-events: none;
 .define p:nth-child(3) {
   margin-left: 3rem;
 }
+
+.paypal {
+  padding-top:0;
+  text-align: right;
+}
+
+@media all and (max-width: 640px) {
+  body > section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .define {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .define p:nth-child(n+2) {
+    margin-left: 0;
+  }
+
+  .paypal {
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+
 /* End Definition Object */
+
+/*footer {
+    background: rgba(0, 0, 0, 0.3);
+}*/
 
 /* Triangles */
 .ss-style-triangles::before,
@@ -128,7 +159,7 @@ pointer-events: none;
 }
 
 /* Zig Zag (3d up and simple down) */
-/*.ss-style-zigzag::before,*/
+.ss-style-zigzag::before,
 .ss-style-zigzag::after {
     right: 0;
     left: 0;
@@ -141,23 +172,23 @@ pointer-events: none;
     /*background-repeat: repeat-x;*/
   }
 
-/*.ss-style-zigzag::before {
+.ss-style-zigzag::before {
   top: -90px;
   background-image: -webkit-gradient(linear, 0 0, 300% 100%, color-stop(0.25, transparent), color-stop(0.25, #3498db));
   background-image:
     linear-gradient(315deg, #3093d5 25%, transparent 25%),
     linear-gradient( 45deg, #3498db 25%, transparent 25%);
   background-position: 50%;
-}*/
+}
 
-.ss-style-zigzag::after {
+/*.ss-style-zigzag::after {
   top: 100%;
   background-image: -webkit-gradient(linear, 0 0, 300% 100%, color-stop(0.25, rgba(0,0,0,.3)), color-stop(0.25, rgba(0,0,0,.3)));
   background-image:
     linear-gradient(135deg, rgba(0,0,0,.3) 18%, transparent 18%),
     linear-gradient(225deg, rgba(0,0,0,.3) 18%, transparent 18%);
   background-position: 50%;
-}
+}*/
 
 /* Multiple Triangles */
 .ss-style-multitriangles::before,
