@@ -2,9 +2,9 @@
 <html lang="en" class="no-js">
 <head>
 
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="apple-mobile-web-app-capable" content="yes">
 
   <meta name="robots" content="NOODP, NOYDIR"/>
@@ -21,35 +21,133 @@
 
   <link href='http://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="css/custom.css">
 
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/foundation.css">
+
+    <link rel="stylesheet" href="css/app.css" />
+
+    <script src="js/vendor/modernizr.js"></script>
 </head>
 
-<body>
+<body id="home">
 
-<div class="container">
-  <div class="splash"></div>
-</div>
+  <div class="contain-to-grid fixed">
+    <nav class="top-bar" data-topbar role="navigation">
 
-<section>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">CHAPS AWAY</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>MENU</span></a></li>
+      </ul>
 
-  <div class="define">
-    <p>chap</p>
-    <p>noun:</p>
-    <p class="indent">(<em>informal</em>) a man or boy; fellow; gentleman</p>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="active"><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#purchase">Purchase</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </section>
+    </nav>
   </div>
 
-  <div class="define">
-    <p>away</p>
-    <p>adverb:</p>
-    <p class="indent">to or at a distance from a particular place or person.</p>
+<section class="definition ss-style-multitriangles">
+  <div class="row">
+      <div class="large-12 columns">
+        <div class="row">
+            <div class="large-4 columns">
+              <img src="images/logo-round.png" alt="Chaps Away Logo">
+            </div>
+
+            <div class="large-8 columns">
+              <div class="define">
+                <p>chap</p>
+                <p>noun:</p>
+                <p class="indent">(<em>informal</em>) a man or boy; fellow; gentleman</p>
+              </div>
+
+              <div class="define">
+                <p>away</p>
+                <p>adverb:</p>
+                <p class="indent">to or at a distance from a particular place or person.</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ss-style-triangles" id="about">
+    <div class="row">
+      <div class="medium-9 columns">
+        <h1>What we're about</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-9 columns">
+        <p>We provide classic, authentic, quality travel items from a by-gone era.</p>
+        <p>Travelling away from home could be anything from a quick Sunday walk around your estate, through to circumnavigating the globe!</p>
+        <p>We aim to supply anything that you might need for such adventures away from home, from a waterproof canvas bag to a gentlemans wash kit - circa 1940 of course!</p>
+      </div>
+      <div class="medium-3 columns">
+        <img src="images/compass.jpg">
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="splash"></div>
   </div>
 
-</section>
+  <section class="ss-style-multitriangles" id="purchase">
+  <div class="row">
+    <div class="medium-9 columns">
+    <h1>Make a purchase</h1>
+      <p>If you would like to purchase any items, you may do so directly through this website, using PayPal.</p>
+      <p>Simply use the PayPal 'Pay Now' button on this page and when asked, enter the amount you would like to pay for your item(s).</p>
+      <p>Should you have any queries at all, please do not hesitate to <a href="#contact">contact us</a> using our contact details below.</p>
+    </div>
+  </div>
 
-<section></section>
+  <div class="row">
+    <div class="medium-3 medium-offset-9 columns">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="5ST3WY8R6R8P8">
+        <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+      </form>
+    </div>
+  </div>
 
-<section></section>
+  </section>
+
+  <section id="contact">
+    <div class="row">
+      <h1>Contact Us</h1>
+      <p>Should you have any queries, please do not hesitate to get in touch.</p>
+      <p>Telephone: 07921 777900</p>
+      <p>Email: <a href="mailto:incoming@chapsaway.com">incoming@chapsaway.com</p>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="row">
+      <div class="medium-offset-9">
+        <p>Copyright 2014 Chaps Away</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/jquery.js"></script>
+  <!-- <script src="js/foundation.js"></script> -->
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
 
 </body>
 </html>
