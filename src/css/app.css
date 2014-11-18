@@ -17,8 +17,8 @@ body {
 .container {
   position: relative;
   width: 100%;
-  height: 40vh;
-  z-index: -1;
+  height: 400px;
+/*  z-index: -1;*/
 }
 
 /* background cover and position fixed don't play nice. Must fix position the div, not the background. */
@@ -26,13 +26,13 @@ body {
 .splash {
   width: 100%;
   height: 100%;
-  background: url(../images/wood-burn-light.jpg) no-repeat center center;
+  background: url(../images/orange-wood.jpg) no-repeat center center;
   background-size: cover;
 }
 
 body > section {
   position: relative;
-  padding: 60px;
+  padding: 100px 60px 60px 60px;
 }
 
 body > section:nth-of-type(1) {
@@ -113,6 +113,10 @@ pointer-events: none;
   body > section {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  body > section:nth-of-type(1) {
+    padding-top: 70px;
   }
 
   .define {
