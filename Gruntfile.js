@@ -195,6 +195,16 @@ module.exports = function (grunt) {
                     ext: '.min.js',
                     extDot: 'last'
                 }]
+            },
+            other: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['js/foundation.min.js'],
+                    dest: 'dist/',
+//                    ext: '.min.js',
+                    extDot: 'last'
+                }]
             }
         },
 
