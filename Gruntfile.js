@@ -24,17 +24,6 @@ module.exports = function (grunt) {
                     dest: 'dist/'
                 }, ]
             },
-            test: {
-                options: {
-                    optimizationLevel: 3
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'dist/temp/',
-                    src: ['**/*.jpg', '**/*.png', '**/*.gif'],
-                    dest: 'dist/temp/min/'
-                }, ]
-            }
         },
 
         responsive_images: {
