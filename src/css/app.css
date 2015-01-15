@@ -109,6 +109,14 @@ pointer-events: none;
   text-align: right;
 }
 
+.fi-social-pinterest {
+  font-size: 2rem;
+}
+
+.pint {
+  padding:30px 0;
+}
+
 @media all and (max-width: 640px) {
   body > section {
     padding-left: 0;
