@@ -133,9 +133,9 @@ pointer-events: none;
   padding-top:20px;
 }
 
-.product-header {
-  padding:40px 0;
-}
+/*.product-header {
+  padding:40px 20px;
+}*/
 
 .product-text {
   position:relative;
@@ -180,7 +180,7 @@ pointer-events: none;
     border-top: medium double #333;
     color: #333;
     text-align: center;
-    margin: 30px auto 0 auto;
+    margin: 30px auto 50px auto;
 }
 
 .hrr:after {
@@ -211,7 +211,11 @@ pointer-events: none;
 }
 
 .pint {
-  padding:30px 0;
+  padding-bottom:30px;
+}
+
+.pint-embed {
+  padding:10px;
 }
 
 @media all and (max-width: 640px) {
