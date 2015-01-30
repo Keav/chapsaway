@@ -329,3 +329,142 @@ pointer-events: none;
   background: rgba(0,0,0,0.1);
   box-shadow: -50px 50px 0 rgba(0,0,0,0.1), 50px -50px 0 rgba(0,0,0,0.1);
 }
+
+/* Product details panel slide over ************************************ */
+
+.product-details {
+  overflow: hidden;
+  position: relative;
+}
+
+.product-details .product-hover-text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  text-align: left;
+  padding: 0 20px;
+  background: rgba(100,200,140,0.85);
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s;
+}
+
+.panel:hover .product-hover-text {
+  display: block !important;
+  background: rgba(100,200,140,0.85);
+  left: 0;
+  top: 0;
+}
+
+/* Product details paralax effect slide up */
+
+/*.grid {
+  padding: 20px 20px 100px 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  list-style: none;
+  text-align: center;
+}
+
+.grid li {
+  display: inline-block;
+  width: 440px;
+  margin: 0;
+  padding: 20px;
+  text-align: left;
+  position: relative;
+}*/
+
+.figure {
+  margin: 0;
+  position: relative;
+}
+
+/*.figure img {
+  max-width: 100%;
+  display: block;
+  position: relative;
+}*/
+
+.figcaption {
+  position: absolute;
+/*  top: 50px;*/
+  bottom:0;
+  left: 0;
+/*  padding: 20px;
+  background: #2c3f52;
+  color: #ed4e6e;*/
+}
+
+.figcaption p {
+  color: #fff;
+}
+
+/*.figcaption span:before {
+  content: 'by ';
+}
+
+.figcaption a {
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 2px;
+  display: inline-block;
+  background: #ed4e6e;
+  color: #fff;
+}*/
+
+/* Caption Style 3 */
+.cs-style-3 .figure {
+  overflow: hidden;
+}
+
+.cs-style-3 .figure img {
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  transition: transform 0.4s;
+}
+
+.no-touch .cs-style-3 .figure:hover img,
+.cs-style-3 .figure.cs-hover img {
+  -webkit-transform: translateY(-50px);
+  -moz-transform: translateY(-50px);
+  -ms-transform: translateY(-50px);
+  transform: translateY(-50px);
+}
+
+.cs-style-3 .figcaption {
+/*  height: 100%;
+*/  width: 100%;
+/*  top: auto;
+  bottom: 0;*/
+  opacity: 0;
+/*  display:none;
+*/  padding:0 20px 10px 20px;
+  text-align: left;
+  background: rgba(0,0,60,0.8);
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+  -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+  transition: transform 0.4s, opacity 0.1s 0.3s;
+}
+
+.no-touch .cs-style-3 .figure:hover .figcaption,
+.cs-style-3 .figure.cs-hover .figcaption {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+  -moz-transition: -moz-transform 0.4s, opacity 0.1s;
+  transition: transform 0.4s, opacity 0.1s;
+}
+
+
