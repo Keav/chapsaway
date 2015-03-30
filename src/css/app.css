@@ -158,11 +158,11 @@ pointer-events: none;
 .hvr-glow {
 /*  display: inline-block;
   vertical-align: middle;*/
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+/*  -webkit-transform: translateZ(0);
+  transform: translateZ(0);*/
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+/*  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;*/
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
@@ -359,67 +359,38 @@ pointer-events: none;
 
 /* Product details paralax effect slide up */
 
-/*.grid {
-  padding: 20px 20px 100px 20px;
-  max-width: 1300px;
-  margin: 0 auto;
-  list-style: none;
-  text-align: center;
-}
-
-.grid li {
-  display: inline-block;
-  width: 440px;
-  margin: 0;
-  padding: 20px;
-  text-align: left;
-  position: relative;
-}*/
-
 .figure {
-  margin: 0;
   position: relative;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .figure img {
+  position: relative;
   max-width: 100%;
   display: block;
-  position: relative;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .figcaption {
   position: absolute;
-/*  top: 50px;*/
   bottom:0;
   left: 0;
-/*  padding: 20px;
-  background: #2c3f52;
-  color: #ed4e6e;*/
 }
 
 .figcaption p {
   color: #fff;
 }
 
-/*.figcaption span:before {
-  content: 'by ';
-}
-
-.figcaption a {
-  text-align: center;
-  padding: 5px 10px;
-  border-radius: 2px;
-  display: inline-block;
-  background: #ed4e6e;
-  color: #fff;
-}*/
-
 /* Caption Style 3 */
-.cs-style-3 .figure {
+/*.cs-style-3 .figure {
   overflow: hidden;
-}
+
+}*/
 
 .cs-style-3 .figure img {
   -webkit-transition: -webkit-transform 0.4s;
@@ -427,8 +398,7 @@ pointer-events: none;
   transition: transform 0.4s;
 }
 
-.no-touch .cs-style-3 .figure:hover img,
-.cs-style-3 .figure.cs-hover img {
+.no-touch .figure:hover img {
   -webkit-transform: translateY(-50px);
   -moz-transform: translateY(-50px);
   -ms-transform: translateY(-50px);
@@ -436,13 +406,9 @@ pointer-events: none;
 }
 
 .cs-style-3 .figcaption {
-/*  height: 100%;
-*/  width: 100%;
-/*  top: auto;
-  bottom: 0;*/
+  width: 100%;
   opacity: 0;
-/*  display:none;
-*/  padding:0 20px 10px 20px;
+  padding:0 20px 10px 20px;
   text-align: left;
   background: rgba(0,0,60,0.8);
   -webkit-transform: translateY(100%);
@@ -468,5 +434,3 @@ pointer-events: none;
   -moz-transition: -moz-transform 0.4s, opacity 0.1s;
   transition: transform 0.4s, opacity 0.1s;
 }
-
-
