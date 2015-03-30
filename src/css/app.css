@@ -381,11 +381,13 @@ pointer-events: none;
   position: relative;
 }
 
-/*.figure img {
+.figure img {
   max-width: 100%;
   display: block;
   position: relative;
-}*/
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 
 .figcaption {
   position: absolute;
