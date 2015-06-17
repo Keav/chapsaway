@@ -50,23 +50,6 @@ module.exports = function (grunt) {
             },
         },
 
-        htmlhint: {
-            build: {
-                options: {
-                    'tag-pair': true,
-                    'tagname-lowercase': true,
-                    'attr-lowercase': true,
-                    'attr-value-double-quotes': true,
-                    'doctype-first': true,
-                    'spec-char-escape': true,
-                    'id-unique': true,
-                    'head-script-disabled': true,
-                    'style-disabled': true
-                },
-                src: ['src/index.html']
-            }
-        },
-
         htmlmin: {
             dist: {
                 options: {
@@ -89,20 +72,6 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'src/css/sass.css': 'src/scss/sass.scss'
-                }
-            }
-        },
-
-        compass: {
-            dist: {
-                options: {
-                    require: 'susy',
-                    sassDir: 'src/scss',
-                    cssDir: 'src/css',
-                    javascriptsDir: 'src/js',
-                    fontsDir: 'src/fonts',
-                    imagesDir: 'src/images',
-                    outputStyle: 'expanded'
                 }
             }
         },
@@ -167,19 +136,6 @@ module.exports = function (grunt) {
                 src: '*.css',
                 dest: 'src/css/'
             }
-        },
-
-        jshint: {
-            options: {
-                curly: true,
-                eqeqeq: true,
-                eqnull: true,
-                browser: true,
-                globals: {
-                    jQuery: true
-                },
-            },
-            uses_defaults: ['src/js/custom.js', 'Gruntfile.js'],
         },
 
         uglify: {
@@ -278,36 +234,9 @@ module.exports = function (grunt) {
             },
         },
 
-        'string-replace': {
-            inline: {
-                files: {'dist/index.html' : 'dist/index.html'},
-                options: {
-                    replacements: [
-                    // place files inline example
-                        {
-                            pattern: '</head>',
-                            replacement: '<script src="js/analytics.min.js" async></script></head>'
-                        }
-                    ]
-                }
-            }
-        },
-
         shell: {
             bumpVersion: {
                 command: 'npm version patch'
-            }
-        },
-
-        connect: {
-            server: {
-                options: {
-                    livereload: true,
-                    hostname: 'localhost',
-                    port: 9001,
-                    base: 'src/',
-                    open: true
-                }
             }
         },
 
@@ -328,19 +257,12 @@ module.exports = function (grunt) {
     });
 
     // Default task(s).
-    grunt.registerTask('default', ['connect', 'watch']);
-
-    // CSS tasks.
-    grunt.registerTask('buildcss', ['sass', 'cssmin']);
-
-    // Bump release version numbers
-    grunt.registerTask('release', ['shell:bumpVersion']);
-
-    grunt.registerTask('code', ['clean', 'newer:htmlmin', 'newer:uglify', 'newer:cssmin', 'newer:copy', 'string-replace', 'hashres']);
+    grunt.registerTask('default', ['watch']);
 
     // Interim Deployment
     grunt.registerTask('deploy', ['clean', 'newer:imagemin', 'htmlmin', 'uglify', 'cssmin', 'newer:copy', 'string-replace', 'hashres']);
 
-    grunt.registerTask('copysrc', ['clean', 'copy']);
+        // Bump release version numbers
+    grunt.registerTask('release', ['shell:bumpVersion']);
 
 };
