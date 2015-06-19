@@ -8,6 +8,7 @@ html, body {
 
 body {
     background-image: url(../images/leather.png);
+    -webkit-font-smoothing: subpixel-antialiased; /* Keeps font weights consistant across browsers */
 }
 
 .no-touch html, .no-touch body, .no-touch .splash {
@@ -156,17 +157,9 @@ pointer-events: none;
 }
 
 .panel {
-/*  display: inline-block;
-  vertical-align: middle;*/
-/*  -webkit-transform: translateZ(0);
-  transform: translateZ(0);*/
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-/*  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;*/
   -moz-osx-font-smoothing: grayscale;
-  -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  -webkit-transition-property: box-shadow;
   transition-property: box-shadow;
 }
 .panel:hover {
@@ -196,10 +189,7 @@ pointer-events: none;
 .hrr {
     border: 0;
     height: 1px;
-    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-    background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-    background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
-    background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
 }
 
 .social {
@@ -256,7 +246,8 @@ pointer-events: none;
   width: 50px;
   height: 50px;
   -webkit-transform: translateX(-50%) rotate(45deg);
-  transform: translateX(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) rotate(45deg);
+      transform: translateX(-50%) rotate(45deg);
 }
 
 /*.ss-style-triangles::before {
@@ -291,7 +282,6 @@ pointer-events: none;
 
 .ss-style-zigzag::before {
   top: -90px;
-  background-image: -webkit-gradient(linear, 0 0, 300% 100%, color-stop(0.25, transparent), color-stop(0.25, #3498db));
   background-image:
     linear-gradient(315deg, #3093d5 25%, transparent 25%),
     linear-gradient( 45deg, #3498db 25%, transparent 25%);
@@ -314,7 +304,8 @@ pointer-events: none;
   width: 50px;
   height: 50px;
   -webkit-transform: translateX(-50%) rotate(45deg);
-  transform: translateX(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) rotate(45deg);
+      transform: translateX(-50%) rotate(45deg);
 }
 
 /*.ss-style-multitriangles::before {
@@ -363,7 +354,6 @@ pointer-events: none;
   position: relative;
   overflow: hidden;
   -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -372,7 +362,6 @@ pointer-events: none;
   max-width: 100%;
   display: block;
   -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
   transform: translateZ(0);
 }
 
@@ -387,14 +376,12 @@ pointer-events: none;
 }
 
 .panel .figure img {
-  -webkit-transition: -webkit-transform 0.4s;
-  -moz-transition: -moz-transform 0.4s;
+  transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
 }
 
 .no-touch .panel:hover .figure img {
   -webkit-transform: translateY(-50px);
-  -moz-transform: translateY(-50px);
   -ms-transform: translateY(-50px);
   transform: translateY(-50px);
 }
@@ -406,24 +393,19 @@ pointer-events: none;
   text-align: left;
   background: rgba(0,0,60,0.8);
   -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
   transform: translateY(100%);
   -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
-  -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+  transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
   transition: transform 0.4s, opacity 0.1s 0.3s;
 }
 
 .no-touch .panel:hover .figure .figcaption {
   opacity: 1;
   -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
-  -webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
-  -moz-transition: -moz-transform 0.4s, opacity 0.1s;
+  transition: -webkit-transform 0.4s, opacity 0.1s;
   transition: transform 0.4s, opacity 0.1s;
 }
