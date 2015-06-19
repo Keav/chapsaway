@@ -240,6 +240,23 @@ module.exports = function (grunt) {
             }
         },
 
+        bump: {
+            options: {
+                files: ['package.json'],
+                updateConfigs: [],
+                commit: true,
+                commitMessage: 'Release v%VERSION%',
+                commitFiles: ['package.json'],
+                createTag: true,
+                tagName: 'v%VERSION%',
+                tagMessage: 'Version %VERSION%',
+                push: true,
+                pushTo: 'origin',
+                gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
+                globalReplace: false
+            }
+        },
+
         watch: {
             options: {
             //    livereload: true
@@ -256,13 +273,13 @@ module.exports = function (grunt) {
 
     });
 
-    // Default task(s).
+ // Default task(s).
     grunt.registerTask('default', ['watch']);
 
-    // Interim Deployment
-    grunt.registerTask('deploy', ['clean', 'newer:imagemin', 'htmlmin', 'uglify', 'cssmin', 'newer:copy', 'string-replace', 'hashres']);
+    // Build for Staging
+    grunt.registerTask('build', ['clean', 'autoprefixer', 'newer:imagemin:dist', 'newer:htmlmin', 'newer:uglify', 'newer:cssmin', 'newer:copy', 'hashres:min', 'hashres:prod']);
 
-        // Bump release version numbers
-    grunt.registerTask('release', ['shell:bumpVersion']);
+    // Bump release version numbers
+    grunt.registerTask('release', ['bump:major']);
 
 };
