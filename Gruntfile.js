@@ -50,6 +50,23 @@ module.exports = function (grunt) {
             },
         },
 
+        htmlhint: {
+            build: {
+                options: {
+                    'tag-pair': true,
+                    'tagname-lowercase': true,
+                    'attr-lowercase': true,
+                    'attr-value-double-quotes': true,
+                    'doctype-first': true,
+                    'spec-char-escape': true,
+                    'id-unique': true,
+                    'head-script-disabled': true,
+                    'style-disabled': true
+                },
+                src: ['src/index.html']
+            }
+        },
+
         htmlmin: {
             dist: {
                 options: {
@@ -72,6 +89,20 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'src/css/sass.css': 'src/scss/sass.scss'
+                }
+            }
+        },
+
+        compass: {
+            dist: {
+                options: {
+                    require: 'susy',
+                    sassDir: 'src/scss',
+                    cssDir: 'src/css',
+                    javascriptsDir: 'src/js',
+                    fontsDir: 'src/fonts',
+                    imagesDir: 'src/images',
+                    outputStyle: 'expanded'
                 }
             }
         },
@@ -136,6 +167,19 @@ module.exports = function (grunt) {
                 src: '*.css',
                 dest: 'src/css/'
             }
+        },
+
+        jshint: {
+            options: {
+                curly: true,
+                eqeqeq: true,
+                eqnull: true,
+                browser: true,
+                globals: {
+                    jQuery: true
+                },
+            },
+            uses_defaults: ['src/js/custom.js', 'Gruntfile.js'],
         },
 
         uglify: {
@@ -234,26 +278,36 @@ module.exports = function (grunt) {
             },
         },
 
+        'string-replace': {
+            inline: {
+                files: {'dist/index.html' : 'dist/index.html'},
+                options: {
+                    replacements: [
+                    // place files inline example
+                        {
+                            pattern: '</head>',
+                            replacement: '<script src="js/analytics.min.js" async></script></head>'
+                        }
+                    ]
+                }
+            }
+        },
+
         shell: {
             bumpVersion: {
                 command: 'npm version patch'
             }
         },
 
-        bump: {
-            options: {
-                files: ['package.json'],
-                updateConfigs: [],
-                commit: true,
-                commitMessage: 'Release v%VERSION%',
-                commitFiles: ['package.json'],
-                createTag: true,
-                tagName: 'v%VERSION%',
-                tagMessage: 'Version %VERSION%',
-                push: true,
-                pushTo: 'origin',
-                gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
-                globalReplace: false
+        connect: {
+            server: {
+                options: {
+                    livereload: true,
+                    hostname: 'localhost',
+                    port: 9001,
+                    base: 'src/',
+                    open: true
+                }
             }
         },
 
@@ -273,13 +327,20 @@ module.exports = function (grunt) {
 
     });
 
- // Default task(s).
-    grunt.registerTask('default', ['watch']);
+    // Default task(s).
+    grunt.registerTask('default', ['connect', 'watch']);
 
-    // Build for Staging
-    grunt.registerTask('build', ['clean', 'autoprefixer', 'newer:imagemin:dist', 'newer:htmlmin', 'newer:uglify', 'newer:cssmin', 'newer:copy', 'hashres:min', 'hashres:prod']);
+    // CSS tasks.
+    grunt.registerTask('buildcss', ['sass', 'cssmin']);
 
     // Bump release version numbers
-    grunt.registerTask('release', ['bump:major']);
+    grunt.registerTask('release', ['shell:bumpVersion']);
+
+    grunt.registerTask('code', ['clean', 'newer:htmlmin', 'newer:uglify', 'newer:cssmin', 'newer:copy', 'string-replace', 'hashres']);
+
+    // Interim Deployment
+    grunt.registerTask('deploy', ['clean', 'newer:imagemin', 'htmlmin', 'uglify', 'cssmin', 'newer:copy', 'string-replace', 'hashres']);
+
+    grunt.registerTask('copysrc', ['clean', 'copy']);
 
 };
