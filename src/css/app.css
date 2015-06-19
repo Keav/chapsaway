@@ -155,7 +155,7 @@ pointer-events: none;
   background: rgba(100,100,100,0.4);
 }
 
-.hvr-glow {
+.panel {
 /*  display: inline-block;
   vertical-align: middle;*/
 /*  -webkit-transform: translateZ(0);
@@ -169,7 +169,7 @@ pointer-events: none;
   -webkit-transition-property: box-shadow;
   transition-property: box-shadow;
 }
-.hvr-glow:hover, .hvr-glow:focus, .hvr-glow:active {
+.panel:hover {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
@@ -386,26 +386,20 @@ pointer-events: none;
   color: #fff;
 }
 
-/* Caption Style 3 */
-/*.cs-style-3 .figure {
-  overflow: hidden;
-
-}*/
-
-.cs-style-3 .figure img {
+.panel .figure img {
   -webkit-transition: -webkit-transform 0.4s;
   -moz-transition: -moz-transform 0.4s;
   transition: transform 0.4s;
 }
 
-.no-touch .figure:hover img {
+.no-touch .panel:hover .figure img {
   -webkit-transform: translateY(-50px);
   -moz-transform: translateY(-50px);
   -ms-transform: translateY(-50px);
   transform: translateY(-50px);
 }
 
-.cs-style-3 .figcaption {
+.figcaption {
   width: 100%;
   opacity: 0;
   padding:0 20px 10px 20px;
@@ -423,8 +417,7 @@ pointer-events: none;
   transition: transform 0.4s, opacity 0.1s 0.3s;
 }
 
-.no-touch .cs-style-3 .figure:hover .figcaption,
-.cs-style-3 .figure.cs-hover .figcaption {
+.no-touch .panel:hover .figure .figcaption {
   opacity: 1;
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
